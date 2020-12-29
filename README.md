@@ -1,6 +1,6 @@
 # vuejs-essential
 # vue项目
-## 1.初始化
+## 入坑VUE
 ## Project setup
 ```
 npm install
