@@ -1,7 +1,14 @@
 <template lang="pug">
-  div#app
-    img(src="./assets/logo.png")
-    h1 Wwelcome from pug & sass
+  <div class="container">
+  <div class="jumbotron">
+  <div class="container">
+  <h1>Welcome form Bootstrap</h1>
+  <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <p><a class="btn btn-primary btn-lg" href="http://www.bootcss.com/" role="button" target="_blank"> Learn more <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
+  </a></p>
+  </div>
+  </div>
+  </div>
 </template>
 
 <script>
@@ -13,15 +20,8 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-h1{
-  color: #42b983;
-}
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+@import "~bootstrap-sass/assets/stylesheets/_bootstrap";
+
+body > .container { margin-top: 15px;}
 </style>
