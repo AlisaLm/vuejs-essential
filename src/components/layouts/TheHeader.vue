@@ -11,10 +11,10 @@
           </button>
 <!--          为了浏览器缩小放大页面兼容 结尾-->
 
-          <a href="/" class="navbar-brand">
+          <router-link to="/" class="navbar-brand">
             <img :src="logo.src" :alt="logo.title">
             <span class="title">{{logo.title}}</span>
-          </a>
+          </router-link>
 
         </div>
 
