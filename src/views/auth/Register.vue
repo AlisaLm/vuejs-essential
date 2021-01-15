@@ -23,11 +23,12 @@
             <label class="control-label">图片验证码</label>
             <input v-validator.required="{ title: '图片验证码'}" type="text" class="form-control" placeholder="请填写验证码">
           </div>
-          <div class="thumbnail" title="点击图片重新获取验证码">
+          <div class="thumbnail" title="点击图片重新获取验证码" @click="getCaptcha">
             <div class="captcha vcenter" v-html="captchaTpl"></div>
           </div>
-          <button type="submit" class="bth btn-lg btn-success btn-block"></button>
-          <i class="fa fa-btn fa-sign-in"></i>注册
+          <button type="submit" class="bth btn-lg btn-success btn-block">
+            <i class="fa fa-btn fa-sign-in"></i>注册
+          </button>
         </div>
       </div>
     </div>

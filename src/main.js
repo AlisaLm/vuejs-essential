@@ -3,7 +3,7 @@ import App from './App.vue'
 // 引入路由配置
 import router from "@/router";
 // 引入全局验证指令
-import './directives'
+import './directives/index'
 Vue.config.productionTip = false
 
 new Vue({
