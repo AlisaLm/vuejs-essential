@@ -6,6 +6,7 @@ import router from "@/router";
 import './directives/index'
 Vue.config.productionTip = false
 
+import './components/index'
 new Vue({
   router,
   render: h => h(App),
