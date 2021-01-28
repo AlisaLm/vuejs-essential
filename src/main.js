@@ -4,9 +4,12 @@ import App from './App.vue'
 import router from "@/router";
 // 引入全局验证指令
 import './directives/index'
+import './components'
+// 引入store/index.js的默认值
+import store from "@/store";
+
 Vue.config.productionTip = false
 
-import './components/index'
 new Vue({
   router,
   render: h => h(App),

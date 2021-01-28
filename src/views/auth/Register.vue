@@ -23,12 +23,12 @@
           </div>
           <div class="form-group">
             <label class="control-label">图片验证码</label>
-            <input v-validator.required="{ title: '图片验证码'}" type="text" class="form-control" placeholder="请填写验证码">
+            <input v-model.trim="captcha" v-validator.required="{ title: '图片验证码'}" type="text" class="form-control" placeholder="请填写验证码">
           </div>
           <div class="thumbnail" title="点击图片重新获取验证码" @click="getCaptcha">
-            <div v-model.trim="captcha" class="captcha vcenter" v-html="captchaTpl"></div>
+            <div class="captcha vcenter" v-html="captchaTpl"></div>
           </div>
-          <button type="submit" class="bth btn-lg btn-success btn-block">
+          <button type="submit" class="bth btn-lg btn-success btn-block" @click="register">
             <i class="fa fa-btn fa-sign-in"></i>注册
           </button>
         </div>
@@ -77,7 +77,10 @@ export default {
     submit() {
       //检查验证码是否匹配
       if (this.captcha.toUpperCase() !== this.localCaptcha) {
-        alert('验证码不正确')
+        console.log(this.captcha)
+        console.log(this.localCaptcha)
+        console.log(111)
+        this.showMsg('验证码不正确')
         //重新获取验证码
         this.getCaptcha()
       } else {
@@ -88,12 +91,15 @@ export default {
           // 根据用户名，从现实返回一张头像
           avatar: `https://api.adorable.io/avatars/200/${this.username}.png`
         }
-        const localUser = ls.getItem('user')
+        // 修改
+        // const localUser = ls.getItem('user')
+        // 为=>从仓库获取用户信息
+        const localUser = this.$store.state.user
 
         if (localUser) {
           //检查是否重名
           if (localUser.name === user.name) {
-            alert('用户名已存在')
+            this.showMsg('用户名已存在')
           } else {
             this.login(user)
           }
@@ -103,7 +109,10 @@ export default {
       }
     },
     login(user) {
-      ls.setItem('user',user)
+      // 修改
+      // ls.setItem('user',user)
+      // 为 => 分发login事件，以保存用户信息和登录
+      this.$store.dispatch('login',user)
       alert('注册成功')
     },
     showMsg(msg, type = 'warning') {
