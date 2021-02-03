@@ -18,6 +18,7 @@ export default {
   beforeRouteEnter(to, from, next) {
     // 路由名称，对应路由配置中的name
     const fromName = from.name
+    const logout = to.params.logout
 
     // 确认导航
     next(vm => {
@@ -30,8 +31,25 @@ export default {
             vm.showMsg('注册成功')
                 break
         }
+      } else if (logout) {
+        // logout返回true时，显示操作成功
+        vm.showMsg('退出成功')
       }
     })
+  },
+  computed: {
+    // 用户登录状态
+    auth() {
+      return this.$store.state.auth
+    }
+  },
+  watch: {
+    // 监听auth，值变为false时，提示操作成功
+    auth(value) {
+      if (!value) {
+        this.showMsg('退出成功')
+      }
+    }
   },
   methods: {
     showMsg(msg, type = 'success') {
